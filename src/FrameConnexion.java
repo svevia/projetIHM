@@ -14,9 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 
 public class FrameConnexion {
-
+	final JFrame f = new JFrame("Connexion") ;
 	public FrameConnexion(){
-		final JFrame f = new JFrame("Connexion") ;
 	   	JPanel panel = new JPanel(); 
 	   	panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS)) ; 
 		
@@ -81,7 +80,7 @@ public class FrameConnexion {
 	   				
 	   				@Override
 	   				public void run() {
-	   					new MyFrame() ; 
+	   					new MyFrame(f) ; 
 	   				}
 	   			});
 	   	    }
@@ -121,7 +120,7 @@ public class FrameConnexion {
 	    panel6.setBackground(Color.WHITE);
 
 	    //Parameter JFrame
-	    f.setPreferredSize(new Dimension(280,480));
+	    f.setPreferredSize(new Dimension(320,480));
 	    
 	    f.getContentPane().add(general) ; 
 		 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ;

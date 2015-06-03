@@ -29,9 +29,8 @@ import javax.swing.border.EmptyBorder;
 
 public class MyFrame {
 
-	
-	     public MyFrame(){
-	    	 JFrame f = new JFrame("Connexion") ;
+		static JFrame f;
+	     public MyFrame(JFrame f){
 	    	 JPanel panel = new JPanel(); 
 	    	 panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS)) ; 
 	    	 //TextField Search
@@ -123,7 +122,7 @@ public class MyFrame {
 	    	 general.add(panel5); 
 	    	 general.add(panel6); 
 	         //Parameter JFrame
-	         //f.setPreferredSize(new Dimension(320,480));
+	    	 f.setPreferredSize(new Dimension(320,480));
 	         
 	         f.getContentPane().add(general) ; 
 	    	 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ;
@@ -136,7 +135,7 @@ public class MyFrame {
 				
 				@Override
 				public void run() {
-					new MyFrame() ; 
+					new MyFrame(f) ; 
 					
 				}
 			});
