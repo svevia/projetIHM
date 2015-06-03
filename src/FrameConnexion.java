@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -14,8 +16,8 @@ import javax.swing.border.EmptyBorder;
 
 
 public class FrameConnexion {
-	final JFrame f = new JFrame("Connexion") ;
-	public FrameConnexion(){
+	static List<Etudiant> etudiants;
+	public FrameConnexion(final JFrame f){
 	   	JPanel panel = new JPanel(); 
 	   	panel.setLayout(new BoxLayout(panel, BoxLayout.LINE_AXIS)) ; 
 		
@@ -80,7 +82,7 @@ public class FrameConnexion {
 	   				
 	   				@Override
 	   				public void run() {
-	   					new MyFrame(f) ; 
+	   					new MyFrame(f,etudiants) ; 
 	   				}
 	   			});
 	   	    }
@@ -129,11 +131,17 @@ public class FrameConnexion {
 	}
 	
     public static void main(String[] args){
+    	final JFrame f = new JFrame("Connexion") ;
+    	etudiants = new ArrayList<Etudiant>();
+   	 	etudiants.add(new Etudiant("Jean kevin", new ImageIcon("images/tete.png")));
+   	 	etudiants.add(new Etudiant("Jean Armand", new ImageIcon("images/tete2.png")));
+   	 	etudiants.add(new Etudiant("Jean Roger", new ImageIcon("images/tete3.png")));
+
    	 javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			
 			@Override
 			public void run() {
-				new FrameConnexion() ; 
+				new FrameConnexion(f) ; 
 				
 			}
 		});
